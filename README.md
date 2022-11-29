@@ -66,16 +66,75 @@ CIRCUIT DIAGRAM
 9.	Ensure safety before powering up the device.
 
 
-### PROGRAM :
+PROGRAM :
+// C++ code
+
+#include <Servo.h>
+int pos = 0;
+Servo servo_9;
+
+void setup()
+{
+ Serial.begin(9600);
+ servo_9.attach(9, 500, 2500);//
  
+}
 
+void loop()
+{
+ for (pos = 0; pos <= 180; pos += 1) 
+ {
+   servo_9.write(pos);
+   delay(15);
+ 	Serial.print("Angle of Server: ");
+ 	Serial.println(pos);
+ }
+ for (pos = 180; pos >= 0; pos -= 1) 
+ {
+   servo_9.write(pos);
+   delay(15);
+ 	Serial.print("Angle of Server: ");
+ 	Serial.println(pos);
+ }
+}
+OUTPUT:
 
+![image](https://user-images.githubusercontent.com/118738931/204521237-3ff3701f-acd9-41bc-bd44-48a886e7bed2.png)
 
+Program:
 
+// C++ code
 
+#include <Servo.h>
+int pos = 0;
+Servo servo_9;
 
+void setup()
+{
+  Serial.begin(9600);
+  servo_9.attach(9, 500, 2500);//
+  
+}
 
+void loop()
+{
+  for (pos = 0; pos <= 180; pos += 1) 
+  {
+    servo_9.write(pos);
+    delay(15);
+  	Serial.println(pos);
+  }
+  for (pos = 180; pos >= 0; pos -= 1) 
+  {
+    servo_9.write(pos);
+    delay(15);
+  	Serial.println(pos);
+  }
+}
+Output:
 
+![image](https://user-images.githubusercontent.com/118738931/204521267-9d2141b1-2138-478a-b190-647a5b140c3e.png)
 
-### RESULTS: 
+RESULTS:
+
 Arduino uno interfacing with servo motor is learned and angular position is controlled using PWM signal.
